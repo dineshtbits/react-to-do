@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import NewTodo from './NewTodo'
+import './TodoList.css'
 
 const defaultTodos = [
   {
@@ -44,15 +45,24 @@ function TodoList() {
   }
 
   return (
-    <div>
-      <div>This is a todo page</div>
+    <div className="wrapper">
+      <table>
+        <tr>
+          <th>Task</th>
+          <th>Status</th>
+          <th>Actions</th>
+          <th>Actions</th>
+        </tr>
       {todos.map(todo => (
-        <div key={todo.id}>
-          <span>{todo.title}</span> <span>{todo.status}</span>
-          <button onClick={() => markAsCompleted(todo.id)}>Complete</button>
-          <button onClick={() => deleteTodo(todo.id)}>Delete</button>
-        </div>
+        <tr key={todo.id} className="todo-item">
+          <td>{todo.title}</td> 
+          <td>{todo.status}</td>
+          <td><button onClick={() => markAsCompleted(todo.id)}>Complete</button></td>
+          <td><button onClick={() => deleteTodo(todo.id)}>Delete</button></td>
+        </tr>
       ))}
+      </table>
+      <br/>
       <NewTodo addAnewTodo={addAnewTodo}/>
 
     </div>

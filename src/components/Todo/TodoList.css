@@ -1,0 +1,13 @@
+.wrapper {
+  padding: 20px;
+  font-size: 20px;
+}
+
+.todo-item {
+  padding: 10px;
+}
+
+.wrapper table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
